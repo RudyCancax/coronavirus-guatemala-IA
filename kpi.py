@@ -74,6 +74,21 @@ def total_recuperados_guatemala():
     return total_recuperados, fecha_mas_reciente
 
 
+
+
+def ploteo_casos_guatemala():
+    return data
+
+
+
+
+
+
+
+
+
+
+
 # def total_positivos_otros_paises():
 #         # leer archivo principal
 #     dts = pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv')

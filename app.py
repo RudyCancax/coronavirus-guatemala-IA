@@ -12,6 +12,8 @@ sys.path.append(os.path.abspath('./'))
 
 
 # Importamos para la interfaz de usuario
-from ui import encabezado
+from ui import encabezado, ploteo
 
 encabezado()
+
+ploteo()
