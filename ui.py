@@ -7,31 +7,64 @@ import plotly.graph_objects as go
 import sys, os
 sys.path.append(os.path.abspath('./'))
 
-from kpi import total_positivos_guatemala, total_fallecidos_guatemala, total_recuperados_guatemala, ploteo_casos_guatemala
-# Datos Guatemala
-casos_positivos_guate = total_positivos_guatemala()
-casos_fallecidos_guate = total_fallecidos_guatemala()
-casos_recuperados_guate = total_recuperados_guatemala()
-plot = ploteo_casos_guatemala()
-# datos_otros_paises = total_positivos_otros_paises()
+# Importamos las funciones de KPI
+from kpi import total_casos_guatemala, ploteo_guatemala, ploteo_predicciones
+
+""" 
+    Explicación funciones importadas de KPI
+     1- total_casos_guatemala
+     2- ploteo_guatemala
+     3- plotep_predicciones
+
+    (1)
+    Se le envía un entero, ej: total_casos_guatemala(0)
+    esto para seleccionar que tipo de datos quiero
+     - 0: Positivos
+     - 1: Recuperados
+     - 2: Fallecidos
+
+    y devuelve 1 arreglo de 2 posiciones
+    [0]: Un entero con el total de casos solicitado
+    [1]: La Fecha del último registro según el archivo csv
+
+    (2)
+    Al igual que la función 'total_casos_guatemala',se le envía un entero, ej: ploteo_guatemala(0)
+    y Grafica según se el parámetro seleccionado
+
+    (3)
+    Al igual que la función 'total_casos_guatemala',se le envía un entero, ej: ploteo_guatemala(0)
+    y Grafica según se el parámetro seleccionado
+"""
 
 
+st.sidebar.image('src/mapa_ubicacion.png', format='PNG', width=150)
+st.sidebar.title('GRAFICA POR PAIS')
 
 # Diseño de Interfaz de la Aplicación Web
-def encabezado():
+def encabezado_y_graficas_guatemala():
     st.title("CORONAVIRUS EN **GUATEMALA**")
-    st.subheader("Fecha de última actualización: " + str(casos_positivos_guate[1]))
+    st.subheader("Fecha de última actualización: " + str(total_casos_guatemala(0)[1]))
+    st.image('src/bandera.jpg', use_column_width=True)
+
     # Datos Positivos
-    st.header("*CASOS POSITIVOS: *" + str(casos_positivos_guate[0]) 
-    + ' - '+ "*CASOS FALLECIDOS: *" + str(casos_fallecidos_guate[0]) 
-    + ' - '+ "*CASOS RECUPERADOS: *" + str(casos_recuperados_guate[0]))
+    st.title(str(total_casos_guatemala(0)[0]) + ' - Casos Positivos en Guatemala')
+    # Gráfica Casos POSITIVOS Guatemala con prediccion
+    ploteo_guatemala(0)
+
+    # Datos Recuperados
+    st.title(str(total_casos_guatemala(1)[0]) + '  - Casos Recuperados en Guatemala')
+    # Gráfica Casos RECUPERADOS Guatemala con prediccion
+    ploteo_guatemala(1)
+
     # Datos Fallecidos
-    # st.subheader("CASOS DE OTROS PAISES: ", datos_otros_paises)
+    st.title(str(total_casos_guatemala(2)[0]) + '  - Casos Fallecidos en Guatemala')
+    # Gráfica Casos RECUPERADOS Guatemala con prediccion
+    ploteo_guatemala(2)
 
 
-def ploteo():
-    chart_data = pd.DataFrame(
-        (plot[2], plot[1]),
-        columns=['What']
-    )
-    st.line_chart(chart_data)
+
+# Función que ejecuta la función del kpi ploteo_predic para cada pais que sea seleccionado
+def grafica_otros_paises():
+    st.image('src/mundo.png', format='PNG', width=130)
+    ploteo_predicciones(0)
+    ploteo_predicciones(1)

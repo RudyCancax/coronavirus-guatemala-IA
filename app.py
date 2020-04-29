@@ -1,19 +1,13 @@
 # Importamos streamlit 
 import streamlit as st
-
-# grafico
-import chart_studio
-import chart_studio.plotly as py
-import plotly.figure_factory as ff
-
-import sys, os
-sys.path.append(os.path.abspath('./'))
-
-
+import streamlit_theme as stt 
 
 # Importamos para la interfaz de usuario
-from ui import encabezado, ploteo
+from ui import encabezado_y_graficas_guatemala, grafica_otros_paises
 
-encabezado()
+# Datos GUATEMALA
+encabezado_y_graficas_guatemala()
 
-ploteo()
+
+# Todas las demás gráficas
+grafica_otros_paises()
