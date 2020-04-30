@@ -9,6 +9,7 @@ sys.path.append(os.path.abspath('./'))
 
 # Importamos las funciones de KPI
 from kpi import total_casos_guatemala, ploteo_guatemala, ploteo_predicciones
+from guatemala import grafica
 
 """ 
     Explicación funciones importadas de KPI
@@ -40,15 +41,18 @@ from kpi import total_casos_guatemala, ploteo_guatemala, ploteo_predicciones
 st.sidebar.image('src/mapa_ubicacion.png', format='PNG', width=150)
 st.sidebar.title('GRAFICA POR PAIS')
 
+
 # Diseño de Interfaz de la Aplicación Web
 def encabezado_y_graficas_guatemala():
+
     st.title("CORONAVIRUS EN **GUATEMALA**")
     st.subheader("Fecha de última actualización: " + str(total_casos_guatemala(0)[1]))
+    st.image('src/virus.gif', use_column_width=True)
     st.image('src/bandera.jpg', use_column_width=True)
 
     # Datos Positivos
     st.title(str(total_casos_guatemala(0)[0]) + ' - Casos Positivos en Guatemala')
-    # Gráfica Casos POSITIVOS Guatemala con prediccion
+    # Gráfica Casos POSITIVOS Guatemala con prediccion y también devuelve la tabla de predicciones
     ploteo_guatemala(0)
 
     # Datos Recuperados
@@ -60,6 +64,10 @@ def encabezado_y_graficas_guatemala():
     st.title(str(total_casos_guatemala(2)[0]) + '  - Casos Fallecidos en Guatemala')
     # Gráfica Casos RECUPERADOS Guatemala con prediccion
     ploteo_guatemala(2)
+
+    # Datos estadísitcos GUATEMALA
+    st.title('Datos en comparación a la población según CENSO 2018')
+    grafica()
 
 
 

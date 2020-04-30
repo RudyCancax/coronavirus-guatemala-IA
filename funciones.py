@@ -1,4 +1,7 @@
+import streamlit as st
+
 import numpy as np
+import pandas as pd
 from scipy.optimize import curve_fit
 from datetime import datetime, timedelta
 from sklearn.preprocessing import PolynomialFeatures
@@ -8,9 +11,10 @@ from sklearn.model_selection import cross_val_score
 import plotly.graph_objects as go
 import plotly_express as px
 
+
+
 # Definición de funciones a utilizar para las predicciones
 def logistic(t, a, b, c, d):
-    print(d)
     return c + (d - c)/(1 + a * np.exp(- b * t))
 
 def exponential(t, a, b, c):
@@ -58,8 +62,10 @@ def logistic_prediction(x_train, y_train, x_pred_len, x_range):
         print('\tR^2:', logisticr2)
         print('\tTiempo para duplicarse (ritmo actual): ', round(ldoubletime,2), '(±', round(ldoubletimeerror,2),') días')
         logisticworked = True
-        return y_fit, logistic_plot
+
+        return y_fit, logistic_plot  
     return y_fit, None
+
 
 def exponential_prediction(x_train, y_train, x_pred_len, x_range):
     epopt, epcov = curve_fit(exponential, x_train, y_train, bounds=([0,0,-100],[100,0.9,100]), maxfev=10000)

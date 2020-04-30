@@ -29,12 +29,6 @@ c = countries.CountryData()
 
 paises = []
 
-
-def poblacion_guate():
-    poblacion = pd.read_csv('https://raw.githubusercontent.com/RudyCancax/documentos/master/guatemala.csv')
-    print(poblacion)
-    return poblacion
-
 def leer_archivos_csv():
     datos_positivos = pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv')
     datos_recuperados = pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv')
@@ -44,10 +38,7 @@ def leer_archivos_csv():
 # Variable que almacena los datos leidos
 datos_csv = leer_archivos_csv();
 
-
-
 # BARRA LATERAL DE NUESTRA APP
-
 def barra_lateral(l):
     p = paises
         # Variable que selecciona que tipo de dato filtrará
@@ -85,7 +76,6 @@ def total_casos_guatemala(n):
     total_casos = casos.iat[0,1]
     casos.set_index('Country/Region')
     return total_casos, fecha_mas_reciente
-
 
 
     # Ploteo o graficado
@@ -144,7 +134,7 @@ def plotCases(dataframe, column, country):
     test_x = np.arange(round(x.size * 2.1))
     
     
-    logistic_y, logistic_plot = logistic_prediction(x, y, x_test_len, x_range)
+    logistic_y, logistic_plot= logistic_prediction(x, y, x_test_len, x_range)
     if logistic_plot:
         plot_data.append(logistic_plot)
     
@@ -158,8 +148,6 @@ def plotCases(dataframe, column, country):
         title = f'{country}',
         xaxis_type='date'
     )
-    # PLOTEOOOOOOOOOOOOOOOOOOOOOO O GRAFICACIÓN
-    
 
     fig = go.Figure(data=plot_data, layout=layout)
     st.plotly_chart(fig)
@@ -167,6 +155,7 @@ def plotCases(dataframe, column, country):
 # FIN FUNCIÓN DE GRAFICACIÓN
 
 
+    
 
 def ploteo_predicciones(a):
     a = int(a)
@@ -211,6 +200,8 @@ def ploteo_predicciones(a):
 
 
 
+
+
 def ploteo_guatemala(a):
     a = int(a)
     datos = datos_csv[a]
@@ -239,3 +230,5 @@ def ploteo_guatemala(a):
             errors.append(b[1])
             recentdoublingtime.append(b[2])
         print('\n')
+
+
