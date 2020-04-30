@@ -31,22 +31,12 @@ No hemos creado otras versiones, pero puede visualizar información al respecto 
 
 ## Autores ✒️
 
-* **Rudy Cancax** - *Trabajo Inicial* - [villanuevand](https://github.com/RudyCancax)
-
-También puedes mirar la lista de todos los [contribuyentes](https://github.com/your/project/contributors) quíenes han participado en este proyecto. 
+* **Rudy Cancax** - *Trabajo Inicial* - [RudyCancax](https://github.com/RudyCancax)
 
 ## Licencia 📄
 
 Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
 
-## Expresiones de Gratitud 🎁
-
-* Comenta a otros sobre este proyecto 📢
-* Invita una cerveza 🍺 o un café ☕ a alguien del equipo. 
-* Da las gracias públicamente 🤓.
-* etc.
-
-
 
 ---
-⌨️ con ❤️ por [Villanuevand](https://github.com/Villanuevand) 😊
+⌨️ con ❤️ por [RudyCancax](https://github.com/RudyCancax) 😊
