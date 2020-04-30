@@ -33,9 +33,6 @@ No hemos creado otras versiones, pero puede visualizar información al respecto 
 
 * **Rudy Cancax** - *Trabajo Inicial* - [RudyCancax](https://github.com/RudyCancax)
 
-## Licencia 📄
-
-Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
 
 
 ---
